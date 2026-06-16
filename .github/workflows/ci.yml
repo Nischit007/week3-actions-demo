@@ -1,26 +1,29 @@
-name : Github worklow
+name: Github Workflow
 
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
 
 jobs:
-    run-script:
-        runs-on: ubuntu-latest
+  run-script:
+    runs-on: ubuntu-latest
 
-        steps:
+    steps:
+      - name: Cloning the repo
+        uses: actions/checkout@v4
 
-            - name: Cloning the repo
-              uses: actions/checkout@v4
+      - name: Environment checking
+        run: echo "${{ secrets.APP_ENV }}"
 
-            - name: Enviornment checking
-              run: echo $"{{secrets.APP_ENV}}"
+      - name: Provide permission and execute app.sh
+        run: |
+          chmod +x app.sh
+          ./app.sh
 
-            - name: Provide the permission and execute app.sh
-              run: chmod +x app.sh && ./app.sh
-
-            - name: Provide the permission and execute test.sh
-              run: chmod +x test.sh && ./test.sh
-
-            
+      - name: Provide permission and execute test.sh
+        run: |
+          chmod +x test.sh
+          ./test.sh
