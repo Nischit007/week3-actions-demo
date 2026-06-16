@@ -14,9 +14,11 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v4
 
-
             - name: Print environment
               run: echo "${{ secrets.APP_ENV }}"
+
+            - name: Provide permission to execute test.sh
+              run: chmod +x test.sh
 
             - name: Run Test.sh file
               run: ./test.sh
