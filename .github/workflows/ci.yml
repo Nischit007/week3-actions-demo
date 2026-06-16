@@ -1,4 +1,4 @@
-name: Github Workflow Example
+name : Github worklow
 
 on:
     push:
@@ -6,20 +6,21 @@ on:
             - main
 
 jobs:
-    test:
+    run-script:
         runs-on: ubuntu-latest
 
-
         steps:
-            - name: Checkout code
+
+            - name: Cloning the repo
               uses: actions/checkout@v4
 
-            - name: Print environment
-              run: echo "${{ secrets.APP_ENV }}"
-            
-            - name: Provide permission and execute app.sh
-              run: chmod +x app.sh &&  ./app.sh
+            - name: Enviornment checking
+              run: echo $"{{secrets.APP_ENV}}"
 
-            - name: Provide permission and execute test.sh
+            - name: Provide the permission and execute app.sh
+              run: chmod +x app.sh && ./app.sh
+
+            - name: Provide the permission and execute test.sh
               run: chmod +x test.sh && ./test.sh
 
+            
