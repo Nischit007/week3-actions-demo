@@ -12,7 +12,7 @@ jobs:
 
         steps:
             - name: Print environment
-              run: echo "${{ secrets.APP_ENV }}""
+              run: echo "${{ secrets.APP_ENV }}"
 
             - name: Run Test.sh file
               run: ./test.sh
