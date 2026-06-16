@@ -16,9 +16,10 @@ jobs:
 
             - name: Print environment
               run: echo "${{ secrets.APP_ENV }}"
+            
+            - name: Provide permission and execute app.sh
+              run: chmod +x app.sh &&  ./app.sh
 
-            - name: Provide permission to execute test.sh
-              run: chmod +x test.sh 
+            - name: Provide permission and execute test.sh
+              run: chmod +x test.sh && ./test.sh
 
-            - name: Run Test.sh file
-              run: ./test.sh
