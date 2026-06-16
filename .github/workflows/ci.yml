@@ -11,8 +11,12 @@ jobs:
 
 
         steps:
+            - name: Checkout code
+              run: actions/checkout@v4
+
+
             - name: Print environment
               run: echo "${{ secrets.APP_ENV }}"
 
             - name: Run Test.sh file
-              run: ../../test.sh
+              run: ./test.sh
