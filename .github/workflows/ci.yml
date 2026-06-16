@@ -18,7 +18,7 @@ jobs:
               run: echo "${{ secrets.APP_ENV }}"
 
             - name: Provide permission to execute test.sh
-              run: chmod +x test.sh
+              run: chmod +x test.sh 
 
             - name: Run Test.sh file
               run: ./test.sh
